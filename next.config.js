@@ -6,7 +6,7 @@ const withPWA = require('next-pwa')({
 });
 
 const isGitHubPages = process.env.GITHUB_PAGES === 'true';
-const repoName = 'PresetPhoto'; // Change this to your actual repo name
+const repoName = 'presetphoto'; // Must match your GitHub repo name exactly (case-sensitive)
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
