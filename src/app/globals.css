@@ -1,0 +1,180 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 15, 23, 42;
+  --background-start-rgb: 250, 250, 252;
+  --background-end-rgb: 255, 255, 255;
+}
+
+.dark {
+  --foreground-rgb: 248, 250, 252;
+  --background-start-rgb: 10, 10, 20;
+  --background-end-rgb: 15, 20, 35;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-start-rgb));
+  min-height: 100vh;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-slate-100 dark:bg-slate-800;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-300 dark:bg-slate-600;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-slate-400 dark:bg-slate-500;
+}
+
+/* Focus ring utility */
+.focus-ring {
+  @apply focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-slate-900;
+}
+
+/* Glass morphism effect */
+.glass {
+  @apply bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl;
+}
+
+/* Card styles */
+.card {
+  @apply bg-white dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/50 rounded-2xl shadow-sm shadow-slate-200/50 dark:shadow-none p-6 backdrop-blur-sm;
+}
+
+.card-hover {
+  @apply card hover:shadow-lg hover:shadow-slate-200/80 dark:hover:shadow-slate-900/50 hover:border-slate-300 dark:hover:border-slate-600 transition-all duration-300 hover:-translate-y-0.5;
+}
+
+/* Input styles */
+.input {
+  @apply w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-600 
+         bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100
+         placeholder:text-slate-400 dark:placeholder:text-slate-500
+         focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent
+         transition-all;
+}
+
+/* Button styles */
+.btn-primary {
+  @apply px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 
+         hover:from-blue-500 hover:to-indigo-500
+         text-white font-semibold rounded-xl shadow-lg shadow-blue-500/30
+         hover:shadow-xl hover:shadow-blue-500/40
+         focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2
+         dark:focus:ring-offset-slate-900 transition-all duration-300
+         active:scale-[0.98];
+}
+
+.btn-secondary {
+  @apply px-6 py-3 bg-slate-100 dark:bg-slate-700/80
+         hover:bg-slate-200 dark:hover:bg-slate-600
+         text-slate-700 dark:text-slate-200 font-medium rounded-xl
+         border border-slate-200/80 dark:border-slate-600/80
+         focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2
+         dark:focus:ring-offset-slate-900 transition-all duration-300
+         active:scale-[0.98];
+}
+
+.btn-ghost {
+  @apply px-4 py-2 text-slate-600 dark:text-slate-400
+         hover:bg-slate-100 dark:hover:bg-slate-800
+         font-medium rounded-lg transition-all duration-200;
+}
+
+/* Image processing animation */
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Cropper overrides */
+.reactEasyCrop_Container {
+  background-color: #0f172a !important;
+}
+
+.reactEasyCrop_CropArea {
+  border: 2px solid white !important;
+  box-shadow: 0 0 0 9999em rgba(0, 0, 0, 0.6) !important;
+}
+
+/* Gradient text */
+.gradient-text {
+  @apply bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 bg-clip-text text-transparent;
+}
+
+/* Subtle glow effects */
+.glow {
+  @apply relative;
+}
+
+.glow::before {
+  content: '';
+  @apply absolute -inset-1 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl opacity-0 blur-xl transition-opacity duration-500;
+}
+
+.glow:hover::before {
+  @apply opacity-20 dark:opacity-30;
+}
+
+/* Animated gradient background */
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.animated-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 8s ease infinite;
+}
+
+/* Skeleton loading */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.skeleton {
+  @apply bg-gradient-to-r from-slate-200 via-slate-100 to-slate-200 dark:from-slate-700 dark:via-slate-600 dark:to-slate-700;
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+/* Number input - hide spinners */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}

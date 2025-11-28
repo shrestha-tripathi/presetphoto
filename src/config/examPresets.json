@@ -1,0 +1,1156 @@
+[
+  {
+    "id": "nta_jee_main",
+    "label": "JEE Main (NTA)",
+    "category": "🎓 NTA Exams",
+    "description": "Joint Entrance Examination Main - Engineering entrance",
+    "source": "NTA Information Bulletin",
+    "specs": {
+      "photo": {
+        "widthPx": 276,
+        "heightPx": 354,
+        "minSizeKB": 10,
+        "maxSizeKB": 200,
+        "aspectRatio": "3.5:4.5 cm",
+        "format": "JPG/JPEG",
+        "background": "White",
+        "dateFormat": false
+      },
+      "signature": {
+        "widthPx": 276,
+        "heightPx": 118,
+        "minSizeKB": 4,
+        "maxSizeKB": 30,
+        "aspectRatio": "3.5:1.5 cm",
+        "format": "JPG/JPEG"
+      }
+    }
+  },
+  {
+    "id": "nta_neet_ug",
+    "label": "NEET UG (NTA)",
+    "category": "🎓 NTA Exams",
+    "description": "National Eligibility cum Entrance Test - Medical entrance",
+    "source": "NTA Information Bulletin",
+    "specs": {
+      "photo": {
+        "widthPx": 276,
+        "heightPx": 354,
+        "minSizeKB": 10,
+        "maxSizeKB": 200,
+        "aspectRatio": "3.5:4.5 cm",
+        "format": "JPG/JPEG",
+        "background": "White",
+        "dateFormat": false
+      },
+      "signature": {
+        "widthPx": 276,
+        "heightPx": 118,
+        "minSizeKB": 4,
+        "maxSizeKB": 30,
+        "aspectRatio": "3.5:1.5 cm",
+        "format": "JPG/JPEG"
+      }
+    }
+  },
+  {
+    "id": "nta_cuet_ug",
+    "label": "CUET UG (NTA)",
+    "category": "🎓 NTA Exams",
+    "description": "Common University Entrance Test - UG admissions",
+    "source": "NTA Information Bulletin",
+    "specs": {
+      "photo": {
+        "widthPx": 276,
+        "heightPx": 354,
+        "minSizeKB": 10,
+        "maxSizeKB": 200,
+        "aspectRatio": "3.5:4.5 cm",
+        "format": "JPG/JPEG",
+        "background": "White",
+        "dateFormat": false
+      },
+      "signature": {
+        "widthPx": 276,
+        "heightPx": 118,
+        "minSizeKB": 4,
+        "maxSizeKB": 30,
+        "aspectRatio": "3.5:1.5 cm",
+        "format": "JPG/JPEG"
+      }
+    }
+  },
+  {
+    "id": "nta_ugc_net",
+    "label": "UGC NET / CSIR NET",
+    "category": "🎓 NTA Exams",
+    "description": "National Eligibility Test for Assistant Professor",
+    "source": "NTA Information Bulletin",
+    "specs": {
+      "photo": {
+        "widthPx": 276,
+        "heightPx": 354,
+        "minSizeKB": 10,
+        "maxSizeKB": 200,
+        "aspectRatio": "3.5:4.5 cm",
+        "format": "JPG/JPEG",
+        "background": "White",
+        "dateFormat": false
+      },
+      "signature": {
+        "widthPx": 276,
+        "heightPx": 118,
+        "minSizeKB": 4,
+        "maxSizeKB": 30,
+        "aspectRatio": "3.5:1.5 cm",
+        "format": "JPG/JPEG"
+      }
+    }
+  },
+  {
+    "id": "gate",
+    "label": "GATE (IIT)",
+    "category": "🎓 NTA Exams",
+    "description": "Graduate Aptitude Test in Engineering",
+    "source": "GATE Official Website",
+    "specs": {
+      "photo": {
+        "widthPx": 480,
+        "heightPx": 640,
+        "minSizeKB": 50,
+        "maxSizeKB": 200,
+        "aspectRatio": "3:4",
+        "format": "JPG/JPEG",
+        "background": "White",
+        "dateFormat": false
+      },
+      "signature": {
+        "widthPx": 160,
+        "heightPx": 60,
+        "minSizeKB": 10,
+        "maxSizeKB": 50,
+        "format": "JPG/JPEG"
+      }
+    }
+  },
+  {
+    "id": "upsc_cse",
+    "label": "UPSC CSE (IAS/IPS)",
+    "category": "🏛️ UPSC",
+    "description": "Civil Services Examination - IAS, IPS, IFS",
+    "source": "UPSC Official Notification",
+    "specs": {
+      "photo": {
+        "widthPx": 413,
+        "heightPx": 531,
+        "minSizeKB": 20,
+        "maxSizeKB": 300,
+        "aspectRatio": "3.5:4.5 cm (Passport size)",
+        "format": "JPG/JPEG",
+        "background": "White/Plain",
+        "dateFormat": false
+      },
+      "signature": {
+        "widthPx": 140,
+        "heightPx": 60,
+        "minSizeKB": 4,
+        "maxSizeKB": 30,
+        "format": "JPG/JPEG"
+      }
+    }
+  },
+  {
+    "id": "upsc_cds",
+    "label": "UPSC CDS",
+    "category": "🏛️ UPSC",
+    "description": "Combined Defence Services Examination",
+    "source": "UPSC Official Notification",
+    "specs": {
+      "photo": {
+        "widthPx": 413,
+        "heightPx": 531,
+        "minSizeKB": 20,
+        "maxSizeKB": 300,
+        "aspectRatio": "3.5:4.5 cm (Passport size)",
+        "format": "JPG/JPEG",
+        "background": "White/Plain",
+        "dateFormat": false
+      },
+      "signature": {
+        "widthPx": 140,
+        "heightPx": 60,
+        "minSizeKB": 4,
+        "maxSizeKB": 30,
+        "format": "JPG/JPEG"
+      }
+    }
+  },
+  {
+    "id": "upsc_nda",
+    "label": "UPSC NDA",
+    "category": "🏛️ UPSC",
+    "description": "National Defence Academy Examination",
+    "source": "UPSC Official Notification",
+    "specs": {
+      "photo": {
+        "widthPx": 413,
+        "heightPx": 531,
+        "minSizeKB": 20,
+        "maxSizeKB": 300,
+        "aspectRatio": "3.5:4.5 cm (Passport size)",
+        "format": "JPG/JPEG",
+        "background": "White/Plain",
+        "dateFormat": false
+      },
+      "signature": {
+        "widthPx": 140,
+        "heightPx": 60,
+        "minSizeKB": 4,
+        "maxSizeKB": 30,
+        "format": "JPG/JPEG"
+      }
+    }
+  },
+  {
+    "id": "ssc_cgl",
+    "label": "SSC CGL",
+    "category": "📋 SSC",
+    "description": "Combined Graduate Level Examination",
+    "source": "SSC Official Notification",
+    "specs": {
+      "photo": {
+        "widthPx": 100,
+        "heightPx": 120,
+        "minSizeKB": 4,
+        "maxSizeKB": 12,
+        "aspectRatio": "100x120 px",
+        "format": "JPG/JPEG",
+        "background": "White",
+        "dateFormat": true
+      },
+      "signature": {
+        "widthPx": 140,
+        "heightPx": 60,
+        "minSizeKB": 1,
+        "maxSizeKB": 12,
+        "format": "JPG/JPEG"
+      }
+    }
+  },
+  {
+    "id": "ssc_chsl",
+    "label": "SSC CHSL",
+    "category": "📋 SSC",
+    "description": "Combined Higher Secondary Level Examination",
+    "source": "SSC Official Notification",
+    "specs": {
+      "photo": {
+        "widthPx": 100,
+        "heightPx": 120,
+        "minSizeKB": 4,
+        "maxSizeKB": 12,
+        "aspectRatio": "100x120 px",
+        "format": "JPG/JPEG",
+        "background": "White",
+        "dateFormat": true
+      },
+      "signature": {
+        "widthPx": 140,
+        "heightPx": 60,
+        "minSizeKB": 1,
+        "maxSizeKB": 12,
+        "format": "JPG/JPEG"
+      }
+    }
+  },
+  {
+    "id": "ssc_mts",
+    "label": "SSC MTS / Havaldar",
+    "category": "📋 SSC",
+    "description": "Multi Tasking Staff & Havaldar Examination",
+    "source": "SSC Official Notification",
+    "specs": {
+      "photo": {
+        "widthPx": 100,
+        "heightPx": 120,
+        "minSizeKB": 4,
+        "maxSizeKB": 12,
+        "aspectRatio": "100x120 px",
+        "format": "JPG/JPEG",
+        "background": "White",
+        "dateFormat": true
+      },
+      "signature": {
+        "widthPx": 140,
+        "heightPx": 60,
+        "minSizeKB": 1,
+        "maxSizeKB": 12,
+        "format": "JPG/JPEG"
+      }
+    }
+  },
+  {
+    "id": "ssc_gd",
+    "label": "SSC GD Constable",
+    "category": "📋 SSC",
+    "description": "General Duty Constable in CAPFs",
+    "source": "SSC Official Notification",
+    "specs": {
+      "photo": {
+        "widthPx": 100,
+        "heightPx": 120,
+        "minSizeKB": 4,
+        "maxSizeKB": 12,
+        "aspectRatio": "100x120 px",
+        "format": "JPG/JPEG",
+        "background": "White",
+        "dateFormat": true
+      },
+      "signature": {
+        "widthPx": 140,
+        "heightPx": 60,
+        "minSizeKB": 1,
+        "maxSizeKB": 12,
+        "format": "JPG/JPEG"
+      }
+    }
+  },
+  {
+    "id": "ssc_cpo",
+    "label": "SSC CPO (SI/ASI)",
+    "category": "📋 SSC",
+    "description": "Central Police Organisation - Sub Inspector",
+    "source": "SSC Official Notification",
+    "specs": {
+      "photo": {
+        "widthPx": 100,
+        "heightPx": 120,
+        "minSizeKB": 4,
+        "maxSizeKB": 12,
+        "aspectRatio": "100x120 px",
+        "format": "JPG/JPEG",
+        "background": "White",
+        "dateFormat": true
+      },
+      "signature": {
+        "widthPx": 140,
+        "heightPx": 60,
+        "minSizeKB": 1,
+        "maxSizeKB": 12,
+        "format": "JPG/JPEG"
+      }
+    }
+  },
+  {
+    "id": "ibps_po",
+    "label": "IBPS PO",
+    "category": "🏦 Banking",
+    "description": "Probationary Officer - Public Sector Banks",
+    "source": "IBPS Official Notification",
+    "specs": {
+      "photo": {
+        "widthPx": 200,
+        "heightPx": 230,
+        "minSizeKB": 20,
+        "maxSizeKB": 50,
+        "aspectRatio": "200x230 px (4.5:3.5 cm)",
+        "format": "JPG/JPEG",
+        "background": "White",
+        "dateFormat": true
+      },
+      "signature": {
+        "widthPx": 140,
+        "heightPx": 60,
+        "minSizeKB": 10,
+        "maxSizeKB": 20,
+        "format": "JPG/JPEG"
+      }
+    }
+  },
+  {
+    "id": "ibps_clerk",
+    "label": "IBPS Clerk",
+    "category": "🏦 Banking",
+    "description": "Clerical Cadre - Public Sector Banks",
+    "source": "IBPS Official Notification",
+    "specs": {
+      "photo": {
+        "widthPx": 200,
+        "heightPx": 230,
+        "minSizeKB": 20,
+        "maxSizeKB": 50,
+        "aspectRatio": "200x230 px (4.5:3.5 cm)",
+        "format": "JPG/JPEG",
+        "background": "White",
+        "dateFormat": true
+      },
+      "signature": {
+        "widthPx": 140,
+        "heightPx": 60,
+        "minSizeKB": 10,
+        "maxSizeKB": 20,
+        "format": "JPG/JPEG"
+      }
+    }
+  },
+  {
+    "id": "ibps_so",
+    "label": "IBPS SO",
+    "category": "🏦 Banking",
+    "description": "Specialist Officer - Public Sector Banks",
+    "source": "IBPS Official Notification",
+    "specs": {
+      "photo": {
+        "widthPx": 200,
+        "heightPx": 230,
+        "minSizeKB": 20,
+        "maxSizeKB": 50,
+        "aspectRatio": "200x230 px (4.5:3.5 cm)",
+        "format": "JPG/JPEG",
+        "background": "White",
+        "dateFormat": true
+      },
+      "signature": {
+        "widthPx": 140,
+        "heightPx": 60,
+        "minSizeKB": 10,
+        "maxSizeKB": 20,
+        "format": "JPG/JPEG"
+      }
+    }
+  },
+  {
+    "id": "ibps_rrb_po",
+    "label": "IBPS RRB (Officer/Clerk)",
+    "category": "🏦 Banking",
+    "description": "Regional Rural Banks - Officer Scale & Clerk",
+    "source": "IBPS Official Notification",
+    "specs": {
+      "photo": {
+        "widthPx": 200,
+        "heightPx": 230,
+        "minSizeKB": 20,
+        "maxSizeKB": 50,
+        "aspectRatio": "200x230 px (4.5:3.5 cm)",
+        "format": "JPG/JPEG",
+        "background": "White",
+        "dateFormat": true
+      },
+      "signature": {
+        "widthPx": 140,
+        "heightPx": 60,
+        "minSizeKB": 10,
+        "maxSizeKB": 20,
+        "format": "JPG/JPEG"
+      }
+    }
+  },
+  {
+    "id": "sbi_po",
+    "label": "SBI PO",
+    "category": "🏦 Banking",
+    "description": "State Bank of India - Probationary Officer",
+    "source": "SBI Official Notification",
+    "specs": {
+      "photo": {
+        "widthPx": 200,
+        "heightPx": 230,
+        "minSizeKB": 20,
+        "maxSizeKB": 50,
+        "aspectRatio": "200x230 px (4.5:3.5 cm)",
+        "format": "JPG/JPEG",
+        "background": "White",
+        "dateFormat": true
+      },
+      "signature": {
+        "widthPx": 140,
+        "heightPx": 60,
+        "minSizeKB": 10,
+        "maxSizeKB": 20,
+        "format": "JPG/JPEG"
+      }
+    }
+  },
+  {
+    "id": "sbi_clerk",
+    "label": "SBI Clerk (JA)",
+    "category": "🏦 Banking",
+    "description": "State Bank of India - Junior Associate",
+    "source": "SBI Official Notification",
+    "specs": {
+      "photo": {
+        "widthPx": 200,
+        "heightPx": 230,
+        "minSizeKB": 20,
+        "maxSizeKB": 50,
+        "aspectRatio": "200x230 px (4.5:3.5 cm)",
+        "format": "JPG/JPEG",
+        "background": "White",
+        "dateFormat": true
+      },
+      "signature": {
+        "widthPx": 140,
+        "heightPx": 60,
+        "minSizeKB": 10,
+        "maxSizeKB": 20,
+        "format": "JPG/JPEG"
+      }
+    }
+  },
+  {
+    "id": "rbi_grade_b",
+    "label": "RBI Grade B",
+    "category": "🏦 Banking",
+    "description": "Reserve Bank of India - Grade B Officer",
+    "source": "RBI Official Notification",
+    "specs": {
+      "photo": {
+        "widthPx": 200,
+        "heightPx": 230,
+        "minSizeKB": 20,
+        "maxSizeKB": 50,
+        "aspectRatio": "200x230 px",
+        "format": "JPG/JPEG",
+        "background": "White",
+        "dateFormat": true
+      },
+      "signature": {
+        "widthPx": 140,
+        "heightPx": 60,
+        "minSizeKB": 10,
+        "maxSizeKB": 20,
+        "format": "JPG/JPEG"
+      }
+    }
+  },
+  {
+    "id": "rbi_assistant",
+    "label": "RBI Assistant",
+    "category": "🏦 Banking",
+    "description": "Reserve Bank of India - Assistant",
+    "source": "RBI Official Notification",
+    "specs": {
+      "photo": {
+        "widthPx": 200,
+        "heightPx": 230,
+        "minSizeKB": 20,
+        "maxSizeKB": 50,
+        "aspectRatio": "200x230 px",
+        "format": "JPG/JPEG",
+        "background": "White",
+        "dateFormat": true
+      },
+      "signature": {
+        "widthPx": 140,
+        "heightPx": 60,
+        "minSizeKB": 10,
+        "maxSizeKB": 20,
+        "format": "JPG/JPEG"
+      }
+    }
+  },
+  {
+    "id": "rrb_ntpc",
+    "label": "RRB NTPC",
+    "category": "🚂 Railway",
+    "description": "Non-Technical Popular Categories",
+    "source": "RRB Official Notification",
+    "specs": {
+      "photo": {
+        "widthPx": 140,
+        "heightPx": 160,
+        "minSizeKB": 15,
+        "maxSizeKB": 40,
+        "aspectRatio": "140x160 px (3.5:4 cm)",
+        "format": "JPG/JPEG",
+        "background": "White",
+        "dateFormat": true
+      },
+      "signature": {
+        "widthPx": 140,
+        "heightPx": 60,
+        "minSizeKB": 10,
+        "maxSizeKB": 30,
+        "format": "JPG/JPEG"
+      }
+    }
+  },
+  {
+    "id": "rrb_group_d",
+    "label": "RRB Group D",
+    "category": "🚂 Railway",
+    "description": "Railway Group D / Level 1 Posts",
+    "source": "RRB Official Notification",
+    "specs": {
+      "photo": {
+        "widthPx": 140,
+        "heightPx": 160,
+        "minSizeKB": 15,
+        "maxSizeKB": 40,
+        "aspectRatio": "140x160 px (3.5:4 cm)",
+        "format": "JPG/JPEG",
+        "background": "White",
+        "dateFormat": true
+      },
+      "signature": {
+        "widthPx": 140,
+        "heightPx": 60,
+        "minSizeKB": 10,
+        "maxSizeKB": 30,
+        "format": "JPG/JPEG"
+      }
+    }
+  },
+  {
+    "id": "rrb_alp",
+    "label": "RRB ALP / Technician",
+    "category": "🚂 Railway",
+    "description": "Assistant Loco Pilot & Technician",
+    "source": "RRB Official Notification",
+    "specs": {
+      "photo": {
+        "widthPx": 140,
+        "heightPx": 160,
+        "minSizeKB": 15,
+        "maxSizeKB": 40,
+        "aspectRatio": "140x160 px (3.5:4 cm)",
+        "format": "JPG/JPEG",
+        "background": "White",
+        "dateFormat": true
+      },
+      "signature": {
+        "widthPx": 140,
+        "heightPx": 60,
+        "minSizeKB": 10,
+        "maxSizeKB": 30,
+        "format": "JPG/JPEG"
+      }
+    }
+  },
+  {
+    "id": "rrb_je",
+    "label": "RRB JE / SSE",
+    "category": "🚂 Railway",
+    "description": "Junior Engineer / Senior Section Engineer",
+    "source": "RRB Official Notification",
+    "specs": {
+      "photo": {
+        "widthPx": 140,
+        "heightPx": 160,
+        "minSizeKB": 15,
+        "maxSizeKB": 40,
+        "aspectRatio": "140x160 px (3.5:4 cm)",
+        "format": "JPG/JPEG",
+        "background": "White",
+        "dateFormat": true
+      },
+      "signature": {
+        "widthPx": 140,
+        "heightPx": 60,
+        "minSizeKB": 10,
+        "maxSizeKB": 30,
+        "format": "JPG/JPEG"
+      }
+    }
+  },
+  {
+    "id": "up_police",
+    "label": "UP Police (Constable/SI)",
+    "category": "👮 Police & Defence",
+    "description": "Uttar Pradesh Police Recruitment",
+    "source": "UPPBPB Official Notification",
+    "specs": {
+      "photo": {
+        "widthPx": 200,
+        "heightPx": 230,
+        "minSizeKB": 20,
+        "maxSizeKB": 50,
+        "aspectRatio": "200x230 px",
+        "format": "JPG/JPEG",
+        "background": "White",
+        "dateFormat": true
+      },
+      "signature": {
+        "widthPx": 140,
+        "heightPx": 60,
+        "minSizeKB": 10,
+        "maxSizeKB": 20,
+        "format": "JPG/JPEG"
+      }
+    }
+  },
+  {
+    "id": "mp_police",
+    "label": "MP Police",
+    "category": "👮 Police & Defence",
+    "description": "Madhya Pradesh Police Recruitment",
+    "source": "MPPEB Official Notification",
+    "specs": {
+      "photo": {
+        "widthPx": 200,
+        "heightPx": 230,
+        "minSizeKB": 20,
+        "maxSizeKB": 50,
+        "aspectRatio": "200x230 px",
+        "format": "JPG/JPEG",
+        "background": "White",
+        "dateFormat": true
+      },
+      "signature": {
+        "widthPx": 140,
+        "heightPx": 60,
+        "minSizeKB": 10,
+        "maxSizeKB": 20,
+        "format": "JPG/JPEG"
+      }
+    }
+  },
+  {
+    "id": "bihar_police",
+    "label": "Bihar Police",
+    "category": "👮 Police & Defence",
+    "description": "Bihar Police Recruitment - CSBC",
+    "source": "CSBC Official Notification",
+    "specs": {
+      "photo": {
+        "widthPx": 200,
+        "heightPx": 230,
+        "minSizeKB": 20,
+        "maxSizeKB": 50,
+        "aspectRatio": "200x230 px",
+        "format": "JPG/JPEG",
+        "background": "White",
+        "dateFormat": true
+      },
+      "signature": {
+        "widthPx": 140,
+        "heightPx": 60,
+        "minSizeKB": 10,
+        "maxSizeKB": 20,
+        "format": "JPG/JPEG"
+      }
+    }
+  },
+  {
+    "id": "indian_army",
+    "label": "Indian Army Agniveer",
+    "category": "👮 Police & Defence",
+    "description": "Agniveer Army, Navy, Air Force",
+    "source": "Indian Army Official Portal",
+    "specs": {
+      "photo": {
+        "widthPx": 165,
+        "heightPx": 213,
+        "minSizeKB": 10,
+        "maxSizeKB": 50,
+        "aspectRatio": "3.5:4.5 cm",
+        "format": "JPG/JPEG",
+        "background": "White",
+        "dateFormat": false
+      },
+      "signature": {
+        "widthPx": 165,
+        "heightPx": 71,
+        "minSizeKB": 5,
+        "maxSizeKB": 20,
+        "format": "JPG/JPEG"
+      }
+    }
+  },
+  {
+    "id": "afcat",
+    "label": "AFCAT (Air Force)",
+    "category": "👮 Police & Defence",
+    "description": "Air Force Common Admission Test",
+    "source": "IAF Official Notification",
+    "specs": {
+      "photo": {
+        "widthPx": 413,
+        "heightPx": 531,
+        "minSizeKB": 20,
+        "maxSizeKB": 300,
+        "aspectRatio": "3.5:4.5 cm (Passport size)",
+        "format": "JPG/JPEG",
+        "background": "White",
+        "dateFormat": false
+      },
+      "signature": {
+        "widthPx": 140,
+        "heightPx": 60,
+        "minSizeKB": 4,
+        "maxSizeKB": 30,
+        "format": "JPG/JPEG"
+      }
+    }
+  },
+  {
+    "id": "bpsc",
+    "label": "BPSC (Bihar PSC)",
+    "category": "🏛️ State PSC",
+    "description": "Bihar Public Service Commission Exams",
+    "source": "BPSC Official Portal",
+    "specs": {
+      "photo": {
+        "widthPx": 200,
+        "heightPx": 230,
+        "minSizeKB": 20,
+        "maxSizeKB": 100,
+        "aspectRatio": "200x230 px",
+        "format": "JPG/JPEG",
+        "background": "White",
+        "dateFormat": false
+      },
+      "signature": {
+        "widthPx": 140,
+        "heightPx": 60,
+        "minSizeKB": 10,
+        "maxSizeKB": 40,
+        "format": "JPG/JPEG"
+      }
+    }
+  },
+  {
+    "id": "uppsc",
+    "label": "UPPSC (UP PSC)",
+    "category": "🏛️ State PSC",
+    "description": "Uttar Pradesh Public Service Commission",
+    "source": "UPPSC Official Portal",
+    "specs": {
+      "photo": {
+        "widthPx": 200,
+        "heightPx": 230,
+        "minSizeKB": 20,
+        "maxSizeKB": 100,
+        "aspectRatio": "200x230 px",
+        "format": "JPG/JPEG",
+        "background": "White",
+        "dateFormat": false
+      },
+      "signature": {
+        "widthPx": 140,
+        "heightPx": 60,
+        "minSizeKB": 10,
+        "maxSizeKB": 40,
+        "format": "JPG/JPEG"
+      }
+    }
+  },
+  {
+    "id": "mppsc",
+    "label": "MPPSC (MP PSC)",
+    "category": "🏛️ State PSC",
+    "description": "Madhya Pradesh Public Service Commission",
+    "source": "MPPSC Official Portal",
+    "specs": {
+      "photo": {
+        "widthPx": 200,
+        "heightPx": 230,
+        "minSizeKB": 20,
+        "maxSizeKB": 100,
+        "aspectRatio": "200x230 px",
+        "format": "JPG/JPEG",
+        "background": "White",
+        "dateFormat": false
+      },
+      "signature": {
+        "widthPx": 140,
+        "heightPx": 60,
+        "minSizeKB": 10,
+        "maxSizeKB": 40,
+        "format": "JPG/JPEG"
+      }
+    }
+  },
+  {
+    "id": "rpsc",
+    "label": "RPSC (Rajasthan PSC)",
+    "category": "🏛️ State PSC",
+    "description": "Rajasthan Public Service Commission",
+    "source": "RPSC Official Portal",
+    "specs": {
+      "photo": {
+        "widthPx": 200,
+        "heightPx": 230,
+        "minSizeKB": 20,
+        "maxSizeKB": 100,
+        "aspectRatio": "200x230 px",
+        "format": "JPG/JPEG",
+        "background": "White",
+        "dateFormat": false
+      },
+      "signature": {
+        "widthPx": 140,
+        "heightPx": 60,
+        "minSizeKB": 10,
+        "maxSizeKB": 40,
+        "format": "JPG/JPEG"
+      }
+    }
+  },
+  {
+    "id": "tnpsc",
+    "label": "TNPSC (Tamil Nadu PSC)",
+    "category": "🏛️ State PSC",
+    "description": "Tamil Nadu Public Service Commission",
+    "source": "TNPSC Official Portal",
+    "specs": {
+      "photo": {
+        "widthPx": 200,
+        "heightPx": 230,
+        "minSizeKB": 20,
+        "maxSizeKB": 100,
+        "aspectRatio": "200x230 px",
+        "format": "JPG/JPEG",
+        "background": "White",
+        "dateFormat": false
+      },
+      "signature": {
+        "widthPx": 140,
+        "heightPx": 60,
+        "minSizeKB": 10,
+        "maxSizeKB": 40,
+        "format": "JPG/JPEG"
+      }
+    }
+  },
+  {
+    "id": "kpsc",
+    "label": "KPSC (Karnataka PSC)",
+    "category": "🏛️ State PSC",
+    "description": "Karnataka Public Service Commission",
+    "source": "KPSC Official Portal",
+    "specs": {
+      "photo": {
+        "widthPx": 200,
+        "heightPx": 230,
+        "minSizeKB": 20,
+        "maxSizeKB": 100,
+        "aspectRatio": "200x230 px",
+        "format": "JPG/JPEG",
+        "background": "White",
+        "dateFormat": false
+      },
+      "signature": {
+        "widthPx": 140,
+        "heightPx": 60,
+        "minSizeKB": 10,
+        "maxSizeKB": 40,
+        "format": "JPG/JPEG"
+      }
+    }
+  },
+  {
+    "id": "ctet",
+    "label": "CTET (Teaching)",
+    "category": "👨‍🏫 Teaching",
+    "description": "Central Teacher Eligibility Test",
+    "source": "CBSE Official Notification",
+    "specs": {
+      "photo": {
+        "widthPx": 276,
+        "heightPx": 354,
+        "minSizeKB": 10,
+        "maxSizeKB": 100,
+        "aspectRatio": "3.5:4.5 cm",
+        "format": "JPG/JPEG",
+        "background": "White",
+        "dateFormat": false
+      },
+      "signature": {
+        "widthPx": 276,
+        "heightPx": 118,
+        "minSizeKB": 4,
+        "maxSizeKB": 30,
+        "format": "JPG/JPEG"
+      }
+    }
+  },
+  {
+    "id": "uptet",
+    "label": "UPTET",
+    "category": "👨‍🏫 Teaching",
+    "description": "UP Teacher Eligibility Test",
+    "source": "UPBEB Official Notification",
+    "specs": {
+      "photo": {
+        "widthPx": 200,
+        "heightPx": 230,
+        "minSizeKB": 20,
+        "maxSizeKB": 100,
+        "aspectRatio": "200x230 px",
+        "format": "JPG/JPEG",
+        "background": "White",
+        "dateFormat": false
+      },
+      "signature": {
+        "widthPx": 140,
+        "heightPx": 60,
+        "minSizeKB": 10,
+        "maxSizeKB": 40,
+        "format": "JPG/JPEG"
+      }
+    }
+  },
+  {
+    "id": "kvs",
+    "label": "KVS (Kendriya Vidyalaya)",
+    "category": "👨‍🏫 Teaching",
+    "description": "Kendriya Vidyalaya Teacher Recruitment",
+    "source": "KVS Official Notification",
+    "specs": {
+      "photo": {
+        "widthPx": 200,
+        "heightPx": 230,
+        "minSizeKB": 20,
+        "maxSizeKB": 100,
+        "aspectRatio": "200x230 px",
+        "format": "JPG/JPEG",
+        "background": "White",
+        "dateFormat": false
+      },
+      "signature": {
+        "widthPx": 140,
+        "heightPx": 60,
+        "minSizeKB": 10,
+        "maxSizeKB": 40,
+        "format": "JPG/JPEG"
+      }
+    }
+  },
+  {
+    "id": "indian_passport",
+    "label": "Indian Passport",
+    "category": "📄 Documents",
+    "description": "Ministry of External Affairs - Passport Seva",
+    "source": "Passport Seva Guidelines",
+    "specs": {
+      "photo": {
+        "widthPx": 413,
+        "heightPx": 531,
+        "minSizeKB": 10,
+        "maxSizeKB": 300,
+        "aspectRatio": "3.5:4.5 cm (Passport size)",
+        "format": "JPG/JPEG",
+        "background": "White/Light",
+        "dateFormat": false
+      },
+      "signature": null
+    }
+  },
+  {
+    "id": "us_visa",
+    "label": "US Visa Photo",
+    "category": "📄 Documents",
+    "description": "US Embassy Photo Requirements",
+    "source": "US Embassy Guidelines",
+    "specs": {
+      "photo": {
+        "widthPx": 600,
+        "heightPx": 600,
+        "minSizeKB": 50,
+        "maxSizeKB": 240,
+        "aspectRatio": "2x2 inch (51x51 mm)",
+        "format": "JPG/JPEG",
+        "background": "White",
+        "dateFormat": false
+      },
+      "signature": null
+    }
+  },
+  {
+    "id": "aadhaar",
+    "label": "Aadhaar Card",
+    "category": "📄 Documents",
+    "description": "UIDAI Aadhaar Enrollment",
+    "source": "UIDAI Guidelines",
+    "specs": {
+      "photo": {
+        "widthPx": 350,
+        "heightPx": 450,
+        "minSizeKB": 2,
+        "maxSizeKB": 100,
+        "aspectRatio": "3.5:4.5 cm",
+        "format": "JPG/JPEG",
+        "background": "White/Light",
+        "dateFormat": false
+      },
+      "signature": null
+    }
+  },
+  {
+    "id": "pan_card",
+    "label": "PAN Card",
+    "category": "📄 Documents",
+    "description": "Income Tax Dept - PAN Application",
+    "source": "NSDL/UTITSL Guidelines",
+    "specs": {
+      "photo": {
+        "widthPx": 413,
+        "heightPx": 531,
+        "minSizeKB": 2,
+        "maxSizeKB": 300,
+        "aspectRatio": "3.5:4.5 cm (Passport size)",
+        "format": "JPG/JPEG",
+        "background": "White/Light",
+        "dateFormat": false
+      },
+      "signature": {
+        "widthPx": 140,
+        "heightPx": 60,
+        "minSizeKB": 2,
+        "maxSizeKB": 50,
+        "format": "JPG/JPEG"
+      }
+    }
+  },
+  {
+    "id": "driving_license",
+    "label": "Driving License",
+    "category": "📄 Documents",
+    "description": "RTO Driving License Photo",
+    "source": "RTO Guidelines",
+    "specs": {
+      "photo": {
+        "widthPx": 200,
+        "heightPx": 230,
+        "minSizeKB": 10,
+        "maxSizeKB": 100,
+        "aspectRatio": "3.5:4.5 cm",
+        "format": "JPG/JPEG",
+        "background": "White/Light",
+        "dateFormat": false
+      },
+      "signature": {
+        "widthPx": 140,
+        "heightPx": 60,
+        "minSizeKB": 5,
+        "maxSizeKB": 30,
+        "format": "JPG/JPEG"
+      }
+    }
+  },
+  {
+    "id": "custom",
+    "label": "✏️ Custom Dimensions",
+    "category": "⚙️ Custom",
+    "description": "Set your own dimensions and file size limits",
+    "source": "User Defined",
+    "specs": {
+      "photo": {
+        "widthPx": 200,
+        "heightPx": 230,
+        "minSizeKB": 10,
+        "maxSizeKB": 100,
+        "dateFormat": false,
+        "customizable": true
+      },
+      "signature": {
+        "widthPx": 140,
+        "heightPx": 60,
+        "minSizeKB": 4,
+        "maxSizeKB": 30,
+        "customizable": true
+      }
+    }
+  }
+]
