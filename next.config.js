@@ -1,9 +1,10 @@
-const withPWA = require('next-pwa')({
-  dest: 'public',
-  register: true,
-  skipWaiting: true,
-  disable: process.env.NODE_ENV === 'development',
-});
+// TODO: Re-enable PWA features in the future
+// const withPWA = require('next-pwa')({
+//   dest: 'public',
+//   register: true,
+//   skipWaiting: true,
+//   disable: process.env.NODE_ENV === 'development',
+// });
 
 // const isGitHubPages = process.env.GITHUB_PAGES === 'true';
 const isGitHubPages = false;
@@ -21,5 +22,6 @@ const nextConfig = {
   assetPrefix: isGitHubPages ? `/${repoName}/` : '',
 };
 
-module.exports = withPWA(nextConfig);
+// TODO: Re-enable PWA - change to: module.exports = withPWA(nextConfig);
+module.exports = nextConfig;
 
