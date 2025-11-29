@@ -5,7 +5,8 @@ const withPWA = require('next-pwa')({
   disable: process.env.NODE_ENV === 'development',
 });
 
-const isGitHubPages = process.env.GITHUB_PAGES === 'true';
+// const isGitHubPages = process.env.GITHUB_PAGES === 'true';
+const isGitHubPages = false;
 const repoName = 'presetphoto'; // Must match your GitHub repo name exactly (case-sensitive)
 
 /** @type {import('next').NextConfig} */
@@ -21,3 +22,4 @@ const nextConfig = {
 };
 
 module.exports = withPWA(nextConfig);
+
