@@ -6,7 +6,6 @@ export const metadata: Metadata = {
   description: 'Process photos for SSC, UPSC, IBPS, RRB, GATE, NEET and other government exams. 100% free, works offline, zero data exposure.',
   keywords: 'exam photo, passport photo, SSC photo, UPSC photo, IBPS photo, photo resizer, photo compressor, government exam photo',
   authors: [{ name: 'PresetPhoto' }],
-  manifest: '/manifest.json',
   appleWebApp: {
     capable: true,
     statusBarStyle: 'default',
@@ -34,8 +33,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="apple-touch-icon" href="/icons/icon-192x192.png" />
+        <link rel="manifest" href="./manifest.json" />
+        <link rel="icon" href="./icons/icon.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="./icons/icon.svg" />
       </head>
       <body className="antialiased">
         {children}
