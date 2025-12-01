@@ -110,8 +110,10 @@ const nextConfig = {
     unoptimized: true,
   },
   // GitHub Pages deployment config
-  basePath: isGitHubPages ? `/${repoName}` : '',
-  assetPrefix: isGitHubPages ? `/${repoName}/` : '',
+  // basePath: isGitHubPages ? `/${repoName}` : '',
+  // assetPrefix: isGitHubPages ? `/${repoName}/` : '',
+  basePath: '',
+  assetPrefix: '',
 };
 
 module.exports = withPWA(nextConfig);
