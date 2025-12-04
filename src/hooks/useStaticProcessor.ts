@@ -7,10 +7,11 @@ import type { ImageSpec, CropArea, ProcessedResult, ProcessingState } from '@/ty
 interface UseStaticProcessorOptions {
   spec: ImageSpec;
   addDate?: boolean;
+  signatureColor?: string | null;
 }
 
 interface UseStaticProcessorReturn {
-  processImage: (file: File, cropArea?: CropArea) => Promise<ProcessedResult>;
+  processImage: (file: File, cropArea?: CropArea, signatureColorOverride?: string | null) => Promise<ProcessedResult>;
   state: ProcessingState;
   reset: () => void;
   capabilities: ReturnType<typeof getProcessorCapabilities>;
@@ -33,6 +34,7 @@ interface UseStaticProcessorReturn {
 export function useStaticProcessor({
   spec,
   addDate = false,
+  signatureColor = null,
 }: UseStaticProcessorOptions): UseStaticProcessorReturn {
   const [state, setState] = useState<ProcessingState>({
     step: 'upload',
@@ -52,7 +54,10 @@ export function useStaticProcessor({
   }, []);
 
   const processImage = useCallback(
-    async (file: File, cropArea?: CropArea): Promise<ProcessedResult> => {
+    async (file: File, cropArea?: CropArea, signatureColorOverride?: string | null): Promise<ProcessedResult> => {
+      // Use override if provided, otherwise fall back to hook's signatureColor
+      const effectiveColor = signatureColorOverride !== undefined ? signatureColorOverride : signatureColor;
+      
       try {
         setState({ step: 'processing', progress: 0, error: null });
 
@@ -62,11 +67,13 @@ export function useStaticProcessor({
           minSizeKB: spec.minSizeKB,
           maxSizeKB: spec.maxSizeKB,
           addDate,
+          signatureColor: effectiveColor,
           cropArea: cropArea ? {
             x: cropArea.x,
             y: cropArea.y,
             width: cropArea.width,
             height: cropArea.height,
+            rotation: cropArea.rotation,
           } : undefined,
         };
 
@@ -100,7 +107,7 @@ export function useStaticProcessor({
         throw error;
       }
     },
-    [spec, addDate]
+    [spec, addDate, signatureColor]
   );
 
   return {

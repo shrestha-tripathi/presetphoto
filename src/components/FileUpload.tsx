@@ -75,13 +75,16 @@ export function FileUpload({
         onDragLeave={handleDragLeave}
         className={`
           relative border-2 border-dashed rounded-2xl p-10 md:p-14
-          transition-all duration-300 cursor-pointer group
+          transition-all duration-500 cursor-pointer group overflow-hidden
           ${isDragging 
-            ? 'border-blue-500 bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-500/10 dark:to-indigo-500/10 scale-[1.02]' 
-            : 'border-slate-200 dark:border-slate-700 hover:border-blue-400 dark:hover:border-blue-500 hover:bg-slate-50/50 dark:hover:bg-slate-800/30'
+            ? 'border-blue-500 bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-500/15 dark:to-indigo-500/15 scale-[1.02] shadow-xl shadow-blue-500/20' 
+            : 'border-slate-200 dark:border-slate-700/50 hover:border-blue-400 dark:hover:border-blue-500/50 hover:bg-slate-50/50 dark:hover:bg-slate-800/30 dark:ring-1 dark:ring-white/5 dark:hover:ring-blue-500/20'
           }
         `}
       >
+        {/* Animated gradient background on hover */}
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-500/0 via-indigo-500/0 to-violet-500/0 group-hover:from-blue-500/5 group-hover:via-indigo-500/5 group-hover:to-violet-500/5 dark:group-hover:from-blue-500/10 dark:group-hover:via-indigo-500/10 dark:group-hover:to-violet-500/10 transition-all duration-500" />
+        
         <input
           ref={inputRef}
           type="file"
@@ -90,26 +93,26 @@ export function FileUpload({
           className="hidden"
         />
         
-        <div className="flex flex-col items-center justify-center text-center">
+        <div className="relative flex flex-col items-center justify-center text-center">
           <div className={`
-            w-20 h-20 rounded-2xl flex items-center justify-center mb-5 transition-all duration-300
+            w-20 h-20 rounded-2xl flex items-center justify-center mb-5 transition-all duration-500
             ${isDragging 
-              ? 'bg-gradient-to-br from-blue-500 to-indigo-500 shadow-lg shadow-blue-500/30' 
-              : 'bg-gradient-to-br from-slate-100 to-slate-50 dark:from-slate-700 dark:to-slate-800 group-hover:from-blue-500 group-hover:to-indigo-500 group-hover:shadow-lg group-hover:shadow-blue-500/30'
+              ? 'bg-gradient-to-br from-blue-500 to-indigo-500 shadow-xl shadow-blue-500/40 rotate-3 scale-110' 
+              : 'bg-gradient-to-br from-slate-100 to-slate-50 dark:from-slate-700/80 dark:to-slate-800/80 group-hover:from-blue-500 group-hover:to-indigo-500 group-hover:shadow-xl group-hover:shadow-blue-500/30 group-hover:scale-110 group-hover:rotate-3'
             }
           `}>
-            <Upload className={`w-9 h-9 transition-colors duration-300 ${isDragging ? 'text-white' : 'text-slate-400 dark:text-slate-500 group-hover:text-white'}`} />
+            <Upload className={`w-9 h-9 transition-all duration-500 ${isDragging ? 'text-white animate-bounce' : 'text-slate-400 dark:text-slate-500 group-hover:text-white'}`} />
           </div>
           
-          <h3 className="text-lg font-bold text-slate-800 dark:text-white mb-2">
+          <h3 className="text-lg font-bold text-slate-800 dark:text-white mb-2 transition-colors">
             {isDragging ? 'Drop your image here' : 'Upload your image'}
           </h3>
           
           <p className="text-sm text-slate-500 dark:text-slate-400 mb-5">
-            Drag and drop or <span className="text-blue-600 dark:text-blue-400 font-medium">browse files</span>
+            Drag and drop or <span className="text-blue-600 dark:text-blue-400 font-medium hover:underline">browse files</span>
           </p>
           
-          <div className="flex items-center gap-2 px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-lg">
+          <div className="flex items-center gap-2 px-4 py-2 bg-slate-100 dark:bg-slate-800/60 rounded-lg dark:ring-1 dark:ring-white/10">
             <ImageIcon className="w-4 h-4 text-slate-400" />
             <span className="text-xs text-slate-500 dark:text-slate-400 font-medium">JPEG, PNG, WebP • Max {maxSizeMB}MB</span>
           </div>
@@ -117,7 +120,7 @@ export function FileUpload({
       </div>
       
       {error && (
-        <div className="mt-4 p-4 bg-red-50 dark:bg-red-500/10 border border-red-200 dark:border-red-500/20 rounded-xl flex items-center gap-3">
+        <div className="mt-4 p-4 bg-red-50 dark:bg-red-500/15 border border-red-200 dark:border-red-400/30 rounded-xl flex items-center gap-3 animate-fade-in">
           <div className="w-8 h-8 rounded-lg bg-red-100 dark:bg-red-500/20 flex items-center justify-center flex-shrink-0">
             <span className="text-red-600 dark:text-red-400 text-lg">!</span>
           </div>

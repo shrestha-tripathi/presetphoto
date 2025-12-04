@@ -2,7 +2,7 @@
 
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
-import type { ExamPreset, ProcessedResult } from '@/types';
+import type { ExamPreset, ProcessedResult, CropArea } from '@/types';
 
 interface AppState {
   // Preset selection
@@ -13,6 +13,7 @@ interface AppState {
   uploadedFile: File | null;
   uploadedImageUrl: string | null;
   processedResult: ProcessedResult | null;
+  lastCropArea: CropArea | null; // Store last crop for reprocessing
   
   // Custom dimensions (for custom preset)
   customDimensions: {
@@ -21,6 +22,9 @@ interface AppState {
     minKB: number;
     maxKB: number;
   };
+  
+  // Signature color (null = keep original)
+  signatureColor: string | null;
   
   // UI state
   showCropper: boolean;
@@ -33,7 +37,9 @@ interface AppState {
   setType: (type: 'photo' | 'signature') => void;
   setUploadedFile: (file: File | null, imageUrl: string | null) => void;
   setProcessedResult: (result: ProcessedResult | null) => void;
+  setLastCropArea: (cropArea: CropArea | null) => void;
   setCustomDimensions: (dims: Partial<AppState['customDimensions']>) => void;
+  setSignatureColor: (color: string | null) => void;
   setShowCropper: (show: boolean) => void;
   setAddDate: (add: boolean) => void;
   setDarkMode: (dark: boolean) => void;
@@ -47,12 +53,14 @@ const initialState = {
   uploadedFile: null,
   uploadedImageUrl: null,
   processedResult: null,
+  lastCropArea: null as CropArea | null,
   customDimensions: {
     width: 200,
     height: 230,
     minKB: 10,
     maxKB: 50,
   },
+  signatureColor: null as string | null,
   showCropper: false,
   addDate: false,
   darkMode: false,
@@ -88,9 +96,13 @@ export const useAppStore = create<AppState>()(
         showCropper: false,
       }),
       
+      setLastCropArea: (cropArea) => set({ lastCropArea: cropArea }),
+      
       setCustomDimensions: (dims) => set((state) => ({
         customDimensions: { ...state.customDimensions, ...dims },
       })),
+      
+      setSignatureColor: (color) => set({ signatureColor: color }),
       
       setShowCropper: (show) => set({ showCropper: show }),
       
