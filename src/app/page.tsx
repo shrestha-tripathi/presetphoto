@@ -11,6 +11,7 @@ import {
   ResultDisplay,
   ProcessingOverlay,
   SignatureColorPicker,
+  QualitySlider,
 } from '@/components';
 import type { CropArea, ImageSpec, ExamPreset } from '@/types';
 
@@ -28,6 +29,7 @@ export default function HomePage() {
     isCustomMode,
     signatureColor,
     lastCropArea,
+    outputQuality,
     setPreset,
     setType,
     setUploadedFile,
@@ -38,6 +40,7 @@ export default function HomePage() {
     setDarkMode,
     setCustomDimensions,
     setSignatureColor,
+    setOutputQuality,
     reset,
   } = useAppStore();
 
@@ -77,6 +80,7 @@ export default function HomePage() {
     spec: currentSpec || { widthPx: 200, heightPx: 200, minSizeKB: 10, maxSizeKB: 100 },
     addDate: addDate && selectedType === 'photo',
     signatureColor: selectedType === 'signature' ? signatureColor : null,
+    qualityPreference: outputQuality,
   });
 
   // Online/Offline detection
@@ -351,6 +355,16 @@ export default function HomePage() {
                 />
               </div>
             )}
+
+            {/* Quality Slider - show when preset is selected and no result yet */}
+            {selectedPreset && !processedResult && (
+              <div className="mt-5">
+                <QualitySlider
+                  value={outputQuality}
+                  onChange={setOutputQuality}
+                />
+              </div>
+            )}
           </section>
 
           {/* Upload Section */}
@@ -396,6 +410,34 @@ export default function HomePage() {
                   )}
                 </div>
               )}
+
+              {/* Quality Slider - always show in result section for adjustments */}
+              <div className="mb-6">
+                <QualitySlider
+                  value={outputQuality}
+                  onChange={async (quality) => {
+                    setOutputQuality(quality);
+                    // Reprocess with new quality (pass quality directly to avoid stale closure)
+                    if (lastCropArea && uploadedFile && currentSpec) {
+                      setIsReprocessing(true);
+                      try {
+                        const result = await processImage(uploadedFile, lastCropArea, signatureColor, quality);
+                        setProcessedResult(result);
+                      } catch (error) {
+                        console.error('Reprocessing failed:', error);
+                      } finally {
+                        setIsReprocessing(false);
+                      }
+                    }
+                  }}
+                />
+                {isReprocessing && (
+                  <p className="text-xs text-blue-600 dark:text-blue-400 mt-2 animate-pulse">
+                    ⏳ Reprocessing with new quality...
+                  </p>
+                )}
+              </div>
+
               <ResultDisplay
                 result={processedResult}
                 spec={currentSpec}

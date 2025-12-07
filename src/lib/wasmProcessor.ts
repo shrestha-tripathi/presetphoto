@@ -24,6 +24,7 @@ export interface ProcessOptions {
   maxSizeKB: number;
   addDate: boolean;
   signatureColor?: string | null; // Color to apply to signature (null = keep original)
+  qualityPreference?: number; // 0-100, where 100 = max quality within size limit
   cropArea?: {
     x: number;
     y: number;
@@ -233,28 +234,25 @@ async function resizeWithImageBitmap(
 }
 
 /**
- * Add date band to image using Canvas API
+ * Calculate the height reserved for date band
+ * This is called BEFORE scaling so we know how much space to leave
  */
-function addDateBandToCanvas(
+function getDateBandHeight(targetHeight: number): number {
+  return Math.round(targetHeight * 0.08);
+}
+
+/**
+ * Add date band to the TOP of the image (within existing canvas dimensions)
+ * The image should already be positioned below the band area
+ */
+function drawDateBand(
   ctx: CanvasRenderingContext2D | OffscreenCanvasRenderingContext2D,
   canvas: HTMLCanvasElement | OffscreenCanvas,
-  originalHeight: number
-): number {
-  const bandHeight = Math.round(originalHeight * 0.08);
-  const newHeight = originalHeight + bandHeight;
-  
-  // Get current image data
-  const imageData = ctx.getImageData(0, 0, canvas.width, originalHeight);
-  
-  // Resize canvas
-  canvas.height = newHeight;
-  
-  // Fill with white
+  bandHeight: number
+): void {
+  // Fill band area with white
   ctx.fillStyle = '#FFFFFF';
   ctx.fillRect(0, 0, canvas.width, bandHeight);
-  
-  // Put image data below band
-  ctx.putImageData(imageData, 0, bandHeight);
   
   // Add date text
   const today = new Date();
@@ -266,28 +264,32 @@ function addDateBandToCanvas(
   ctx.textAlign = 'center';
   ctx.textBaseline = 'middle';
   ctx.fillText(dateStr, canvas.width / 2, bandHeight / 2);
-  
-  return newHeight;
 }
 
 /**
  * Binary search for optimal JPEG quality to hit target file size
+ * ALWAYS ensures output is within minSizeKB and maxSizeKB bounds
+ * 
+ * @param qualityPreference 30-100, controls target size within the allowed range
+ *   - 30 = aim for minSizeKB (smallest allowed)
+ *   - 100 = aim for maxSizeKB (largest allowed, best quality)
  */
 async function findOptimalQuality(
   canvas: HTMLCanvasElement | OffscreenCanvas,
   minSizeKB: number,
   maxSizeKB: number,
+  qualityPreference: number = 80,
   onProgress?: (progress: number) => void
 ): Promise<Blob> {
-  const targetBytes = maxSizeKB * 1024;
+  const maxBytes = maxSizeKB * 1024;
   const minBytes = minSizeKB * 1024;
   
-  let lowQuality = 0.1;
-  let highQuality = 1.0;
-  let bestBlob: Blob | null = null;
-  let bestDiff = Infinity;
-  let attempts = 0;
-  const maxAttempts = 15;
+  // Calculate target size based on quality preference (30-100 maps to min-max range)
+  // Normalize preference from 30-100 to 0-1
+  const normalizedPreference = Math.max(0, Math.min(1, (qualityPreference - 30) / 70));
+  const targetBytes = minBytes + (maxBytes - minBytes) * normalizedPreference;
+  
+  console.log(`🎯 Target: ${(targetBytes / 1024).toFixed(1)}KB (range: ${minSizeKB}-${maxSizeKB}KB, preference: ${qualityPreference}%)`);
   
   // Helper to get blob from canvas
   const getBlob = async (quality: number): Promise<Blob> => {
@@ -304,40 +306,76 @@ async function findOptimalQuality(
     }
   };
   
-  while (attempts < maxAttempts && highQuality - lowQuality > 0.02) {
+  onProgress?.(65);
+  
+  // Binary search to find JPEG quality that produces target file size
+  let lowQuality = 0.1;
+  let highQuality = 1.0;
+  let bestBlob: Blob | null = null;
+  let bestDiff = Infinity;
+  let attempts = 0;
+  const maxAttempts = 12;
+  
+  while (attempts < maxAttempts && highQuality - lowQuality > 0.01) {
     const quality = (lowQuality + highQuality) / 2;
     const blob = await getBlob(quality);
     const sizeBytes = blob.size;
     
-    onProgress?.(60 + (attempts / maxAttempts) * 30);
+    onProgress?.(65 + (attempts / maxAttempts) * 30);
     
-    // Track best result within acceptable range
-    if (sizeBytes >= minBytes && sizeBytes <= targetBytes) {
-      const diff = targetBytes - sizeBytes;
+    // Check if this blob is within bounds and closer to target
+    if (sizeBytes >= minBytes && sizeBytes <= maxBytes) {
+      const diff = Math.abs(sizeBytes - targetBytes);
       if (diff < bestDiff) {
         bestDiff = diff;
         bestBlob = blob;
       }
-      // Try to get closer to max (higher quality)
-      if (sizeBytes < targetBytes * 0.85) {
-        lowQuality = quality;
-      } else {
-        break; // Good enough
-      }
-    } else if (sizeBytes > targetBytes) {
-      highQuality = quality;
-    } else {
+    }
+    
+    // Adjust search direction based on target
+    if (sizeBytes < targetBytes) {
+      // Need larger file, increase quality
       lowQuality = quality;
+    } else {
+      // Need smaller file, decrease quality
+      highQuality = quality;
     }
     
     attempts++;
   }
   
-  // Fallback: just return the best we found or last attempt
+  // If we don't have a valid blob yet, do a final attempt
   if (!bestBlob) {
-    bestBlob = await getBlob((lowQuality + highQuality) / 2);
+    // Try to get something within bounds
+    const finalQuality = (lowQuality + highQuality) / 2;
+    bestBlob = await getBlob(finalQuality);
+    
+    // If still too large, keep reducing until within max
+    if (bestBlob.size > maxBytes) {
+      let q = finalQuality;
+      while (q > 0.1 && bestBlob.size > maxBytes) {
+        q -= 0.05;
+        bestBlob = await getBlob(q);
+      }
+    }
+    // If too small, keep increasing until within min (or hit max quality)
+    else if (bestBlob.size < minBytes) {
+      let q = finalQuality;
+      while (q < 1.0 && bestBlob.size < minBytes) {
+        q += 0.05;
+        const newBlob = await getBlob(q);
+        if (newBlob.size <= maxBytes) {
+          bestBlob = newBlob;
+        } else {
+          break; // Don't exceed max
+        }
+      }
+    }
   }
   
+  console.log(`📏 Result: ${(bestBlob.size / 1024).toFixed(1)}KB (target was ${(targetBytes / 1024).toFixed(1)}KB)`);
+  
+  onProgress?.(95);
   return bestBlob;
 }
 
@@ -415,6 +453,10 @@ export async function processImageWASM(
     let canvas: HTMLCanvasElement | OffscreenCanvas;
     let ctx: CanvasRenderingContext2D | OffscreenCanvasRenderingContext2D;
     
+    // Calculate date band height if needed (BEFORE creating canvas)
+    const dateBandHeight = options.addDate ? getDateBandHeight(options.targetHeight) : 0;
+    const imageAreaHeight = options.targetHeight - dateBandHeight;
+    
     if (supportsOffscreenCanvas) {
       canvas = new OffscreenCanvas(options.targetWidth, options.targetHeight);
       ctx = canvas.getContext('2d') as OffscreenCanvasRenderingContext2D;
@@ -430,6 +472,7 @@ export async function processImageWASM(
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     
     // Apply crop and resize from rotated source
+    // Image is drawn BELOW the date band area (if date is enabled)
     if (options.cropArea) {
       ctx.drawImage(
         sourceCanvas,
@@ -438,13 +481,13 @@ export async function processImageWASM(
         options.cropArea.width,
         options.cropArea.height,
         0,
-        0,
+        dateBandHeight, // Start below date band
         options.targetWidth,
-        options.targetHeight
+        imageAreaHeight // Use remaining height for image
       );
     } else {
       // No crop, just resize
-      ctx.drawImage(sourceCanvas, 0, 0, options.targetWidth, options.targetHeight);
+      ctx.drawImage(sourceCanvas, 0, dateBandHeight, options.targetWidth, imageAreaHeight);
     }
     
     onProgress?.(40);
@@ -457,9 +500,9 @@ export async function processImageWASM(
     
     onProgress?.(45);
     
-    // Add date band if requested
+    // Draw date band at top if requested (image is already positioned below)
     if (options.addDate) {
-      finalHeight = addDateBandToCanvas(ctx, canvas, options.targetHeight);
+      drawDateBand(ctx, canvas, dateBandHeight);
     }
     
     onProgress?.(50);
@@ -469,6 +512,7 @@ export async function processImageWASM(
       canvas,
       options.minSizeKB,
       options.maxSizeKB,
+      options.qualityPreference ?? 85,
       onProgress
     );
     
@@ -530,6 +574,10 @@ export async function processImageWASM(
     sourceImage = rotatedCanvas;
   }
   
+  // Calculate date band height if needed (BEFORE creating canvas)
+  const dateBandHeight = options.addDate ? getDateBandHeight(options.targetHeight) : 0;
+  const imageAreaHeight = options.targetHeight - dateBandHeight;
+  
   const canvas = document.createElement('canvas');
   canvas.width = options.targetWidth;
   canvas.height = options.targetHeight;
@@ -539,7 +587,7 @@ export async function processImageWASM(
   ctx.fillStyle = '#FFFFFF';
   ctx.fillRect(0, 0, canvas.width, canvas.height);
   
-  // Apply crop if provided
+  // Apply crop if provided - image is drawn BELOW the date band area
   if (options.cropArea) {
     ctx.drawImage(
       sourceImage,
@@ -548,15 +596,15 @@ export async function processImageWASM(
       options.cropArea.width,
       options.cropArea.height,
       0,
-      0,
+      dateBandHeight, // Start below date band
       options.targetWidth,
-      options.targetHeight
+      imageAreaHeight // Use remaining height for image
     );
   } else {
     // Calculate center crop using the source (possibly rotated) image
     const srcWidth = sourceImage instanceof HTMLCanvasElement ? sourceImage.width : sourceImage.width;
     const srcHeight = sourceImage instanceof HTMLCanvasElement ? sourceImage.height : sourceImage.height;
-    const targetRatio = options.targetWidth / options.targetHeight;
+    const targetRatio = options.targetWidth / imageAreaHeight;
     const imgRatio = srcWidth / srcHeight;
     
     let sx = 0, sy = 0, sw = srcWidth, sh = srcHeight;
@@ -569,7 +617,7 @@ export async function processImageWASM(
       sy = (srcHeight - sh) / 2;
     }
     
-    ctx.drawImage(sourceImage, sx, sy, sw, sh, 0, 0, options.targetWidth, options.targetHeight);
+    ctx.drawImage(sourceImage, sx, sy, sw, sh, 0, dateBandHeight, options.targetWidth, imageAreaHeight);
   }
   
   onProgress?.(50);
@@ -581,9 +629,9 @@ export async function processImageWASM(
   
   onProgress?.(55);
   
-  // Add date band if requested
+  // Draw date band at top if requested (image is already positioned below)
   if (options.addDate) {
-    finalHeight = addDateBandToCanvas(ctx, canvas, options.targetHeight);
+    drawDateBand(ctx, canvas, dateBandHeight);
   }
   
   onProgress?.(60);
@@ -593,6 +641,7 @@ export async function processImageWASM(
     canvas,
     options.minSizeKB,
     options.maxSizeKB,
+    options.qualityPreference ?? 85,
     onProgress
   );
   

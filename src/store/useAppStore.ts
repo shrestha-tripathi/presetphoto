@@ -26,6 +26,9 @@ interface AppState {
   // Signature color (null = keep original)
   signatureColor: string | null;
   
+  // Output quality preference (0-100, where 100 = max quality within size limit)
+  outputQuality: number;
+  
   // UI state
   showCropper: boolean;
   addDate: boolean;
@@ -40,6 +43,7 @@ interface AppState {
   setLastCropArea: (cropArea: CropArea | null) => void;
   setCustomDimensions: (dims: Partial<AppState['customDimensions']>) => void;
   setSignatureColor: (color: string | null) => void;
+  setOutputQuality: (quality: number) => void;
   setShowCropper: (show: boolean) => void;
   setAddDate: (add: boolean) => void;
   setDarkMode: (dark: boolean) => void;
@@ -61,6 +65,7 @@ const initialState = {
     maxKB: 50,
   },
   signatureColor: null as string | null,
+  outputQuality: 80, // Default to 80% (High quality preset)
   showCropper: false,
   addDate: false,
   darkMode: false,
@@ -103,6 +108,8 @@ export const useAppStore = create<AppState>()(
       })),
       
       setSignatureColor: (color) => set({ signatureColor: color }),
+      
+      setOutputQuality: (quality) => set({ outputQuality: quality }),
       
       setShowCropper: (show) => set({ showCropper: show }),
       

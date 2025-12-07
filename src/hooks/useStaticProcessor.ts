@@ -8,10 +8,11 @@ interface UseStaticProcessorOptions {
   spec: ImageSpec;
   addDate?: boolean;
   signatureColor?: string | null;
+  qualityPreference?: number; // 0-100, where 100 = max quality
 }
 
 interface UseStaticProcessorReturn {
-  processImage: (file: File, cropArea?: CropArea, signatureColorOverride?: string | null) => Promise<ProcessedResult>;
+  processImage: (file: File, cropArea?: CropArea, signatureColorOverride?: string | null, qualityOverride?: number) => Promise<ProcessedResult>;
   state: ProcessingState;
   reset: () => void;
   capabilities: ReturnType<typeof getProcessorCapabilities>;
@@ -35,6 +36,7 @@ export function useStaticProcessor({
   spec,
   addDate = false,
   signatureColor = null,
+  qualityPreference = 85,
 }: UseStaticProcessorOptions): UseStaticProcessorReturn {
   const [state, setState] = useState<ProcessingState>({
     step: 'upload',
@@ -54,9 +56,10 @@ export function useStaticProcessor({
   }, []);
 
   const processImage = useCallback(
-    async (file: File, cropArea?: CropArea, signatureColorOverride?: string | null): Promise<ProcessedResult> => {
+    async (file: File, cropArea?: CropArea, signatureColorOverride?: string | null, qualityOverride?: number): Promise<ProcessedResult> => {
       // Use override if provided, otherwise fall back to hook's signatureColor
       const effectiveColor = signatureColorOverride !== undefined ? signatureColorOverride : signatureColor;
+      const effectiveQuality = qualityOverride !== undefined ? qualityOverride : qualityPreference;
       
       try {
         setState({ step: 'processing', progress: 0, error: null });
@@ -68,6 +71,7 @@ export function useStaticProcessor({
           maxSizeKB: spec.maxSizeKB,
           addDate,
           signatureColor: effectiveColor,
+          qualityPreference: effectiveQuality,
           cropArea: cropArea ? {
             x: cropArea.x,
             y: cropArea.y,
@@ -107,7 +111,7 @@ export function useStaticProcessor({
         throw error;
       }
     },
-    [spec, addDate, signatureColor]
+    [spec, addDate, signatureColor, qualityPreference]
   );
 
   return {
